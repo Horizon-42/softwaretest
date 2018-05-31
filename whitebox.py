@@ -14,14 +14,17 @@ def compute_rp(rp, values):
             assert not res.is_empty()
             res.push(op2[char](res.pop(), res.pop()))
         else:
-            assert char.is_digit()
+            assert char in values
             res.push(values[char])
     assert res.size() == 1
     return res.pop()
 
 
 def test():
-    pass
+    rp1 = "BA~C*-"
+    values1 = {'A': 7.0, 'B': 21.0, 'C': 3.0}
+    res1 = compute_rp(rp1, values1)
+    print(res1)
 
 
 if __name__ == '__main__':
